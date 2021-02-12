@@ -13,15 +13,27 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
-class GridBgLayout extends JFrame implements ActionListener{
+class GUIGridBagLayout extends JFrame implements ActionListener{
 
 	GridBagLayout gbl = new GridBagLayout();
 	GridBagConstraints gbc = new GridBagConstraints();
 	
+	public GUIGridBagLayout() {
+		
+		getContentPane().setLayout(gbl);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setTitle("GUI-GridBagLayout");
+		gbc.fill=GridBagConstraints.BOTH;
+		setVisible(true);
+		
+	}
+	
+	
 	
 	
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -32,7 +44,12 @@ class GridBgLayout extends JFrame implements ActionListener{
 public class PruebaGUIGridBagLayout {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				new GUIGridBagLayout();
+			}
+		});
 
 	}
 
