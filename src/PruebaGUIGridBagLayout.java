@@ -1,4 +1,5 @@
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -40,7 +41,7 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		gbc.fill=GridBagConstraints.BOTH;
 		setVisible(true);
 		
-		JLabel txtTitulo = new JLabel("<html>The classic Form includes all visible fields for this list.<html>");
+		JLabel txtTitulo = new JLabel("The classic Form includes all visible fields for this list.");
 		inst(txtTitulo,0,0,4,1,GridBagConstraints.NONE);
 		
 		inst(Box.createVerticalStrut(20),0,1,4,1,GridBagConstraints.NONE);
@@ -107,94 +108,73 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		JCheckBox checkMkRw = new JCheckBox("include Monkey Rewards link");
 		inst(checkMkRw,0,21,4,1,GridBagConstraints.BOTH);
 		
-		/*
+		
+		
+		
+		inst(Box.createHorizontalStrut(20),4,0,1,0,GridBagConstraints.NONE);
+		
 		JLabel txtPreview = new JLabel("Preview");
-		txtPreview.setBounds(277,21,324,13);
-		add(txtPreview);
+		inst(txtPreview,5,0,12,1,GridBagConstraints.BOTH);
+		txtPreview.setPreferredSize(new Dimension(475,20));
+		
+		inst(Box.createVerticalStrut(20),5,1,12,1,GridBagConstraints.NONE);
 		
 		JLabel txtEAddress = new JLabel("Email Address");
-		txtEAddress.setBounds(296,66,136,9);
-		add(txtEAddress);
+		inst(txtEAddress,5,2,12,1,GridBagConstraints.BOTH);
 		
+		inst(txtbEAddress,5,3,12,1,GridBagConstraints.BOTH);
 		
-		txtbEAddress.setBounds(296, 80, 419, 25);
-		add(txtbEAddress);//textbox email
+		inst(Box.createVerticalStrut(1),5,4,12,1,GridBagConstraints.NONE);
 		
 		JLabel txtFName = new JLabel("First Name");
-		txtFName.setBounds(296,118,110,9);
-		add(txtFName);
+		inst(txtFName,5,5,12,1,GridBagConstraints.BOTH);
 		
 		JTextArea txtbFName = new JTextArea();
-		txtbFName.setBounds(296, 132, 419, 25);
 		txtbFName.setLineWrap(true);
 		txtbFName.setWrapStyleWord(true);
-		add(txtbFName);
+		inst(txtbFName,5,6,12,1,GridBagConstraints.BOTH);
+		
+		inst(Box.createVerticalStrut(1),5,7,12,1,GridBagConstraints.NONE);
+		
 		
 		JLabel txtLName = new JLabel("Last Name");
-		txtLName.setBounds(296,170,110,9);
-		add(txtLName);
+		inst(txtLName,5,8,12,1,GridBagConstraints.BOTH);
 		
 		JTextArea txtbLName = new JTextArea();
-		txtbLName.setBounds(296, 184, 419, 25);
 		txtbLName.setLineWrap(true);
 		txtbLName.setWrapStyleWord(true);
-		add(txtbLName);
+		inst(txtbLName,5,9,12,1,GridBagConstraints.BOTH);
 		
-	
-		btnSub.setBounds(297, 221, 53, 53);
+		
 		btnSub.addActionListener(this);
-		add(btnSub);//bounds del botón
+		inst(btnSub,5,10,1,1,GridBagConstraints.NONE);
+		
+		inst(Box.createVerticalStrut(1),5,11,12,1,GridBagConstraints.NONE);
 		
 		JLabel txtCp = new JLabel("Copy/paste onto your site");
-		txtCp.setBounds(277,300,1,13);
-		add(txtCp);
-		*/
-		JTextArea display = new JTextArea("<!-- Begin MailChimp Signup Form -->\r\n" + 
-				"<link href=\"//cdn-images.mailchimp.com/embedcode/classic-10_7.css\" rel=\"stylesheet\" type=\"text/css\">\r\n" + 
-				"<style type=\"text/css\">\r\n" + 
-				"	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:500px; margin-right: auto; margin-left:auto; padding: 15px;}\r\n" + 
-				"	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.\r\n" + 
-				"	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\r\n" + 
-				"</style>\r\n" + 
-				"<div id=\"mc_embed_signup\">\r\n" + 
-				"<form action=\"//cafetruth.us4.list-manage.com/subscribe/post?u=1cb3e16b044661b3a214687b6&amp;id=07a29d37f6\" method=\"post\" id=\"mc-embedded-subscribe-form\" name=\"mc-embedded-subscribe-form\" class=\"validate\" target=\"_blank\" novalidate>\r\n" + 
-				"    <div id=\"mc_embed_signup_scroll\">\r\n" + 
-				"	<h2 align=center>Join and Get Our <br />Tried & True Testimonial Request Template</h2>\r\n" + 
-				"<div class=\"indicates-required\"><span class=\"asterisk\">*</span> indicates required</div>\r\n" + 
-				"<div class=\"mc-field-group\">\r\n" + 
-				"	<label for=\"mce-EMAIL\">Email Address  <span class=\"asterisk\">*</span>\r\n" + 
-				"</label>\r\n" + 
-				"	<input type=\"email\" value=\"\" name=\"EMAIL\" class=\"required email\" id=\"mce-EMAIL\">\r\n" + 
-				"</div>\r\n" + 
-				"<div class=\"mc-field-group\">\r\n" + 
-				"	<label for=\"mce-FNAME\">First Name </label>\r\n" + 
-				"	<input type=\"text\" value=\"\" name=\"FNAME\" class=\"\" id=\"mce-FNAME\">\r\n" + 
-				"</div>\r\n" + 
-				"<div class=\"mc-field-group\">\r\n" + 
-				"	<label for=\"mce-LNAME\">Last Name </label>\r\n" + 
-				"	<input type=\"text\" value=\"\" name=\"LNAME\" class=\"\" id=\"mce-LNAME\">\r\n" + 
-				"</div>\r\n" + 
-				"	<div id=\"mce-responses\" class=\"clear\">\r\n" + 
-				"		<div class=\"response\" id=\"mce-error-response\" style=\"display:none\"></div>\r\n" + 
-				"		<div class=\"response\" id=\"mce-success-response\" style=\"display:none\"></div>\r\n" + 
-				"	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->\r\n" + 
-				"    <div style=\"position: absolute; left: -5000px;\" aria-hidden=\"true\"><input type=\"text\" name=\"b_1cb3e16b044661b3a214687b6_07a29d37f6\" tabindex=\"-1\" value=\"\"></div>\r\n" + 
-				"    <div class=\"clear\"><input type=\"submit\" value=\"Subscribe\" name=\"subscribe\" id=\"mc-embedded-subscribe\" class=\"button\"></div>\r\n" + 
-				"    </div>\r\n" + 
-				"</form>\r\n" + 
-				"</div>\r\n" + 
-				"<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>\r\n" + 
-				"<!--End mc_embed_signup-->");
+		inst(txtCp,5,12,12,1,GridBagConstraints.BOTH);
+		
+		JTextArea display = new JTextArea(
+				"	<div id=\"mce-responses\" class=\"cler\"" + 
+				"		<div class=\"response\" id=\"mce-err" + 
+				"		<div class=\"response\" id=\"mce-suc" + 
+				"	</div>    <!-- real people should not fi" + 
+				"		<div class=\"response\" id=\"mce-err" + 
+				"		<div class=\"response\" id=\"mce-suc" + 
+				"	</div>    <!-- real people should not fi" + 
+				"		<div class=\"response\" id=\"mce-err" + 
+				"		<div class=\"response\" id=\"mce-suc" + 
+				"	</div>    <!-- real people should not fi" + 
+				"    <div style=\"position: absolute; left: -"+ 
+				"<script type='text/javascript' src='//s3.am");
 	    display.setEditable(false);
 	    display.setLineWrap(true);
 	    display.setWrapStyleWord(true);
 	    JScrollPane scroll = new JScrollPane(display);
 	    scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		//scroll.setBounds(277, 323, 463, 150);
-		
-		//add(scroll);
+	    inst(scroll,5,13,12,7,GridBagConstraints.BOTH);
+	    
 		pack();
-		
 	}
 	
 	public void inst(Component cmp,int gridx, int gridy, int gridwidth, int gridheight, int fill) {
