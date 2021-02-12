@@ -29,8 +29,15 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		
 	}
 	
-	
-	
+	public void inst(Component cmp,int gridx, int gridy, int gridwidth, int gridheight, int fill) {
+		gbc.gridx=gridx;
+		gbc.gridy=gridy;
+		gbc.gridwidth=gridwidth;
+		gbc.gridheight=gridheight;
+		gbc.fill=fill;
+		gbl.setConstraints(cmp, gbc);
+		add(cmp);
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
