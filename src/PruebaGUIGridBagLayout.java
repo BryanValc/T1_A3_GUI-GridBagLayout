@@ -5,6 +5,9 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
@@ -15,6 +18,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -22,6 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
+import javax.swing.text.MaskFormatter;
 
 class GUIGridBagLayout extends JFrame implements ActionListener{
 
@@ -30,7 +35,7 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 	
 	Icon icon = new ImageIcon("./archivos/sent.PNG");//imagen
 	JButton btnSub = new JButton(icon);	//Icono
-	JFormattedTextField txtbEAddress = new JFormattedTextField();//textbox
+	JFormattedTextField txtbEAddress = new JFormattedTextField();
 	
 	public GUIGridBagLayout() {
 		
@@ -41,10 +46,10 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		gbc.fill=GridBagConstraints.BOTH;
 		setVisible(true);
 		
-		JLabel txtTitulo = new JLabel("The classic Form includes all visible fields for this list.");
+		JLabel txtTitulo = new JLabel("The classic Form includes all visible fields for this list.");//=====================Izquierda======================
 		inst(txtTitulo,0,0,4,1,GridBagConstraints.NONE);
 		
-		inst(Box.createVerticalStrut(20),0,1,4,1,GridBagConstraints.NONE);
+		inst(Box.createVerticalStrut(20),0,1,4,1,GridBagConstraints.NONE);//espacio
 		
 		JLabel txtFormOptions = new JLabel("Form options");
 		inst(txtFormOptions,0,2,4,1,GridBagConstraints.BOTH);
@@ -60,7 +65,7 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		txtbMail.setWrapStyleWord(true);
 		inst(txtbMail,0,5,4,1,GridBagConstraints.BOTH);
 		
-		inst(Box.createVerticalStrut(20),0,6,4,1,GridBagConstraints.NONE);
+		inst(Box.createVerticalStrut(20),0,6,4,1,GridBagConstraints.NONE);//espacio
 		
 		ButtonGroup bg = new ButtonGroup();
 		JRadioButton radioOrf = new JRadioButton("only required fields");
@@ -73,7 +78,7 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		JLabel txtEditFields = new JLabel("(edit required fields in the form builder)");
 		inst(txtEditFields,0,9,4,1,GridBagConstraints.BOTH);
 		
-		inst(Box.createVerticalStrut(20),0,10,4,1,GridBagConstraints.NONE);
+		inst(Box.createVerticalStrut(20),0,10,4,1,GridBagConstraints.NONE);//espacio
 		
 		JCheckBox checkIgf = new JCheckBox("interest group fields");
 		inst(checkIgf,0,11,4,1,GridBagConstraints.BOTH);
@@ -81,7 +86,7 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		JCheckBox checkRfi = new JCheckBox("required field indicators");
 		inst(checkRfi,0,12,4,1,GridBagConstraints.BOTH);
 		
-		inst(Box.createVerticalStrut(20),0,13,4,1,GridBagConstraints.NONE);
+		inst(Box.createVerticalStrut(20),0,13,4,1,GridBagConstraints.NONE);//espacio
 		
 		JLabel txtSfw = new JLabel("Set form width");
 		inst(txtSfw,0,14,4,1,GridBagConstraints.BOTH);
@@ -91,7 +96,7 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		txtbSfw.setWrapStyleWord(true);
 		inst(txtbSfw,0,15,4,1,GridBagConstraints.BOTH);
 		
-		inst(Box.createVerticalStrut(20),0,16,4,1,GridBagConstraints.NONE);
+		inst(Box.createVerticalStrut(20),0,16,4,1,GridBagConstraints.NONE);//espacio
 		
 		JLabel txtEyf = new JLabel("Enhance your form");
 		inst(txtEyf,0,17,4,1,GridBagConstraints.BOTH);
@@ -111,20 +116,22 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		
 		
 		
-		inst(Box.createHorizontalStrut(20),4,0,1,0,GridBagConstraints.NONE);
+		inst(Box.createHorizontalStrut(20),4,0,1,0,GridBagConstraints.NONE);//===================Derecha====================
 		
 		JLabel txtPreview = new JLabel("Preview");
 		inst(txtPreview,5,0,12,1,GridBagConstraints.BOTH);
 		txtPreview.setPreferredSize(new Dimension(475,20));
 		
-		inst(Box.createVerticalStrut(20),5,1,12,1,GridBagConstraints.NONE);
+		inst(Box.createVerticalStrut(20),5,1,12,1,GridBagConstraints.NONE);//espacio
 		
 		JLabel txtEAddress = new JLabel("Email Address");
 		inst(txtEAddress,5,2,12,1,GridBagConstraints.BOTH);
 		
 		inst(txtbEAddress,5,3,12,1,GridBagConstraints.BOTH);
 		
-		inst(Box.createVerticalStrut(1),5,4,12,1,GridBagConstraints.NONE);
+		
+		
+		inst(Box.createVerticalStrut(1),5,4,12,1,GridBagConstraints.NONE);//espacio
 		
 		JLabel txtFName = new JLabel("First Name");
 		inst(txtFName,5,5,12,1,GridBagConstraints.BOTH);
@@ -134,7 +141,7 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		txtbFName.setWrapStyleWord(true);
 		inst(txtbFName,5,6,12,1,GridBagConstraints.BOTH);
 		
-		inst(Box.createVerticalStrut(1),5,7,12,1,GridBagConstraints.NONE);
+		inst(Box.createVerticalStrut(1),5,7,12,1,GridBagConstraints.NONE);//espacio
 		
 		
 		JLabel txtLName = new JLabel("Last Name");
@@ -149,7 +156,7 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 		btnSub.addActionListener(this);
 		inst(btnSub,5,10,1,1,GridBagConstraints.NONE);
 		
-		inst(Box.createVerticalStrut(1),5,11,12,1,GridBagConstraints.NONE);
+		inst(Box.createVerticalStrut(1),5,11,12,1,GridBagConstraints.NONE);//espacio
 		
 		JLabel txtCp = new JLabel("Copy/paste onto your site");
 		inst(txtCp,5,12,12,1,GridBagConstraints.BOTH);
@@ -189,9 +196,23 @@ class GUIGridBagLayout extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (validate(txtbEAddress.getText())) {
+			JFrame parent = new JFrame();
+		    JOptionPane.showMessageDialog(parent, "Enviado");
+		}else {
+			JFrame parent = new JFrame();
+		    JOptionPane.showMessageDialog(parent, "Correo no valido");
+		}
 		
 	}
+	
+		public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
+		    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+		public static boolean validate(String emailStr) {
+		        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+		        return matcher.find();
+		}
 	
 }
 
